@@ -36,10 +36,10 @@ _Disadvantages :_
 
 2. **Two Sample MR**: In this scenario, the risk factor and the outcome are obtained from two separate sample populations.
    <br>
-   __Advantages :__ 
+_Advantages :_
    * Offers the advantage of leveraging large-scale genetic data from different cohorts, potentially increasing statistical power and generalizability of findings across diverse populations. Additionally, it allows for validation of results across independent datasets, enhancing the robustness of the analysis. 
    <br>
-   __Disadvantages :__ 
+_Disadvantages :_
    * Potential for Bias: Differences in study design, measurement methods, and population characteristics between the two samples can introduce bias if not adequately controlled for, potentially impacting the validity of causal inference.
    * Difficulty in Harmonization: Integrating data from different sources may pose challenges in standardizing variables, matching populations, and accounting for confounding factors, leading to methodological complexities and potential errors in analysis.
 <br>
