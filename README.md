@@ -30,7 +30,7 @@ There are two different types of Mendelian Randomization :
    __Advantages :__ 
    * Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity. 
    <br>
-   __Disadvantages :__ 
+   __Disadvantages :__ <br>
    * Limited Generalizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
    * Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the relationship between the genetic variant, risk factor, and outcome.
    <br>
