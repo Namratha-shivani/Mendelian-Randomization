@@ -39,6 +39,7 @@ _Disadvantages :_
   <img src="One-sample-and-two-sample-Mendelian-randomization-study-designs-A-One-sample.png" width="400" height="200" alt="Alt Text">
 </p>
 <br>
+
 **Two Sample MR**: In this scenario, the risk factor and the outcome are obtained from two separate sample populations.
 
 _Advantages :_
