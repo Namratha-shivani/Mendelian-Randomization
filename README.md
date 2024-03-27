@@ -19,7 +19,9 @@ There are two types of pleiotropy:
 + Vertical Pleiotropy: This occurs when a genetic variant (SNP) influences one trait, which subsequently affects another trait along a downstream pathway to the outcome. However, it's important to note that it's not necessarily the SNP itself that influences the second trait, but rather the first trait affected by the SNP that influences the second trait.
 + Horizontal Pleiotropy: This occurs when a genetic variant affects the outcome through pathways independent of the risk factor. This violates assumption 3 of Mendelian Randomization, which assumes there are no direct pathways between the genetic variant and the outcome, except through the risk factor.
 
-
+<p align="center">
+  <img src="Schematic-of-different-types-of-pleiotropy-Previous-studies-distinguish-between-vertical.png" width="400" height="300" alt="Alt Text">
+</p>
 
 
 
