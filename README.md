@@ -29,8 +29,8 @@ There are two different types of Mendelian Randomization :
 2. Two Sample MR - In this scenario, the risk factor and the outcome are obtained from two separate sample populations.
 
 **Advantages:**
-One Sample MR: Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity.
-Two Sample MR: Offers the advantage of leveraging large-scale genetic data from different cohorts, potentially increasing statistical power and generalizability of findings across diverse populations. Additionally, it allows for validation of results across independent datasets, enhancing the robustness of the analysis.
+* One Sample MR: Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity.
+* Two Sample MR: Offers the advantage of leveraging large-scale genetic data from different cohorts, potentially increasing statistical power and generalizability of findings across diverse populations. Additionally, it allows for validation of results across independent datasets, enhancing the robustness of the analysis.
 
 
 
