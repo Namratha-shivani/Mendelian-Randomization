@@ -25,16 +25,12 @@ There are two types of pleiotropy:
 
 ## Types of MR
 There are two different types of Mendelian Randomization :
-1. **One Sample MR**: This occurs when both the risk factor and the outcome are derived from the same sample population. <br>
-   Advantages : <br>
-   * Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity. <br>
-   Disadvantages : <br>
-   * Limited Gen1. **One Sample MR**: This occurs when both the risk factor and the outcome are derived from the same sample population.
+1. **One Sample MR**: This occurs when both the risk factor and the outcome are derived from the same sample population.
    <br> 
-   **Advantages:** 
+   __Advantages :__ 
    * Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity. 
    <br>
-   **Disadvantages:** 
+   __Disadvantages :__ 
    * Limited Generalizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
    * Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the relationship between the genetic variant, risk factor, and outcome.
    <br>
@@ -43,17 +39,6 @@ There are two different types of Mendelian Randomization :
    <br>
    __Advantages :__ 
    * Offers the advantage of leveraging large-scale genetic data from different cohorts, potentially increasing statistical power and generalizability of findings across diverse populations. Additionally, it allows for validation of results across independent datasets, enhancing the robustness of the analysis. 
-   <br>
-   __Disadvantages :__ 
-   * Potential for Bias: Differences in study design, measurement methods, and population characteristics between the two samples can introduce bias if not adequately controlled for, potentially impacting the validity of causal inference.
-   * Difficulty in Harmonization: Integrating data from different sources may pose challenges in standardizing variables, matching populations, and accounting for confounding factors, leading to methodological complexities and potential errors in analysis.
-eralizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
-   * Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the  relationship between the genetic variant, risk factor, and outcome.
-<br>
-
-2. **Two Sample MR**: In this scenario, the risk factor and the outcome are obtained from two separate sample populations. <br>
-   __Advantages :__
-   * Offers the advantage of leveraging large-scale genetic data from different cohorts, potentially increasing statistical power and generalizability of findings across diverse populations. Additionally, it allows for validation of results across independent datasets, enhancing the robustness of the analysis.
    <br>
    __Disadvantages :__ 
    * Potential for Bias: Differences in study design, measurement methods, and population characteristics between the two samples can introduce bias if not adequately controlled for, potentially impacting the validity of causal inference.
