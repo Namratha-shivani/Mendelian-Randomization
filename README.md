@@ -35,6 +35,10 @@ _Disadvantages :_
 - Limited Generalizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
 - Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the relationship between the genetic variant, risk factor, and outcome.
 
+<p align="center">
+  <img src="One-sample-and-two-sample-Mendelian-randomization-study-designs-A-One-sample.png" width="400" height="200" alt="Alt Text">
+</p>
+
 **Two Sample MR**: In this scenario, the risk factor and the outcome are obtained from two separate sample populations.
 
 _Advantages :_
@@ -44,9 +48,7 @@ _Disadvantages :_
 - Potential for Bias: Differences in study design, measurement methods, and population characteristics between the two samples can introduce bias if not adequately controlled for, potentially impacting the validity of causal inference.
 - Difficulty in Harmonization: Integrating data from different sources may pose challenges in standardizing variables, matching populations, and accounting for confounding factors, leading to methodological complexities and potential errors in analysis.
 
-<p align="center">
-  <img src="One-sample-and-two-sample-Mendelian-randomization-study-designs-A-One-sample.png" width="400" height="200" alt="Alt Text">
-</p>
+
 
 ## Methods for MR
 
