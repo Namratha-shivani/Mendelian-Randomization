@@ -34,11 +34,11 @@ _Advantages :_
 _Disadvantages :_
 - Limited Generalizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
 - Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the relationship between the genetic variant, risk factor, and outcome.
-
+<br>
 <p align="center">
   <img src="One-sample-and-two-sample-Mendelian-randomization-study-designs-A-One-sample.png" width="400" height="200" alt="Alt Text">
 </p>
-
+<br>
 **Two Sample MR**: In this scenario, the risk factor and the outcome are obtained from two separate sample populations.
 
 _Advantages :_
