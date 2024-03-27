@@ -27,10 +27,10 @@ There are two types of pleiotropy:
 There are two different types of Mendelian Randomization :
 1. **One Sample MR**: This occurs when both the risk factor and the outcome are derived from the same sample population.
    <br> 
-   __Advantages :__ 
+   _Advantages :_
    * Allows for direct assessment of the relationship between the genetic variant, risk factor, and outcome within the same population, minimizing potential biases introduced by population heterogeneity. 
    <br>
-   __Disadvantages :__ <br>
+   _Disadvantages :_
    * Limited Generalizability: Findings may be specific to the population from which the data is derived, limiting the applicability of results to other populations.
    * Susceptible to Population Stratification: Population stratification within a single sample can introduce bias if not properly accounted for, potentially confounding the relationship between the genetic variant, risk factor, and outcome.
    <br>
