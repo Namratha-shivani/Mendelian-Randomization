@@ -1,7 +1,6 @@
 ---
 title: "MR_analysis"
 author: "Namratha Shivani Chalasani"
-date: "2024-03-28"
 output:
   word_document: default
   html_document: default
