@@ -53,10 +53,18 @@ _Disadvantages :_
 
 ## Methods for MR
 
+There are different classes of methods to run the MR analysis :
 
+1. IVW-class ( Inverse variance weighted ) - efficient analysis method when all the genetic variants are valid IV's (Primary analysis) (eg:- IVW (fixed), IVW (random))
+2. Outlier detection and removal - identify invalid IV's and remove them from the analysis (eg :- MR-PRESSO etc)
+3. Model-based - probabilistic models to correct for different types of pleiotropy and mixture component models to charecterize valid and invalid signals (eg :- Egger, MR-APSS etc)
+4. Outlier robust - mitigate the effects of invalid IV's (eg:- Weighted-median, Weighted-mode)
 
+## References 
 
-
-
-
+1. Sanderson E, Glymour MM, Holmes MV, Kang H, Morrison J, Munafò MR, Palmer T, Schooling CM, Wallace C, Zhao Q, Davey Smith G. Mendelian randomization. Nature Reviews Methods Primers. 2022 Feb 10;2(1):6. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7614635/)
+2. Hemani G, Bowden J, Davey Smith G. Evaluating the potential role of pleiotropy in Mendelian randomization studies. Human molecular genetics. 2018 Aug 1;27(R2):R195-208. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6061876/)
+3. Burgess S, Smith GD, Davies NM, Dudbridge F, Gill D, Glymour MM, Hartwig FP, Kutalik Z, Holmes MV, Minelli C, Morrison JV. Guidelines for performing Mendelian randomization investigations: update for summer 2023. Wellcome open research. 2019;4. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7384151/)
+4. Hu X, Cai M, Xiao J, Wan X, Wang Z, Zhao H, Yang C. Benchmarking Mendelian Randomization methods for causal inference using genome-wide association study summary statistics. medRxiv. 2024:2024-01. (https://www.medrxiv.org/content/10.1101/2024.01.03.24300765v1)
+5. Hemani G, Zheng J, Elsworth B, Wade KH, Haberland V, Baird D, Laurin C, Burgess S, Bowden J, Langdon R, Tan VY. The MR-Base platform supports systematic causal inference across the human phenome. elife. 2018 May 30;7:e34408. (https://mrcieu.github.io/TwoSampleMR/authors.html)
 
