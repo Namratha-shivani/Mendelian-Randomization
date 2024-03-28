@@ -1,0 +1,182 @@
+---
+title: "MR_analysis"
+author: "Namratha Shivani Chalasani"
+date: "2024-03-28"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Installing and Loading packages
+
+```{r}
+
+#install.packages("remotes")
+#install.packages("forestplot")
+#remotes::install_github("MRCIEU/TwoSampleMR")
+
+library(TwoSampleMR)
+library(MRPRESSO)
+library(forestplot)
+library(dplyr)
+library(ggplot2)
+
+
+```
+
+
+# Reading GWAS summary statistics
+
+The data utilized for Mendelian Randomization (MR) analysis, comprising the exposure Body Mass Index (BMI) dataset and the outcome Type 2 Diabetes (T2D) dataset, is sourced from the IEU OpenGWAS project.          
+
+
+```{r}
+
+BMI <- extract_instruments(outcomes = 'ieu-a-2')
+Diabetes <- extract_outcome_data(BMI$SNP, outcomes = 'ieu-a-976') 
+
+```
+
+# Harmonizing the Data 
+
+In Mendelian Randomization (MR), data harmonization involves ensuring consistency between genetic variants used as instruments for the exposure and outcome variables. This often includes flipping the reference (Ref) and alternate (Alt) alleles in the outcome dataset to match those in the exposure dataset. By aligning the alleles, the effect sizes (betas) estimated for the genetic variants remain consistent across both datasets. This harmonization process helps mitigate potential biases introduced by allele inconsistencies and ensures the validity of causal inference in MR.             
+
+
+```{r}
+
+data <- harmonise_data(exposure_dat = BMI,
+                       outcome_dat = Diabetes)
+
+head(data)
+
+```
+
+# MR analysis 
+
+Conducting MR analysis and generating odds ratios using TwoSample MR using MR-Egger, IVW, Weighted-mode, Simple-mode methods.
+
+```{r}
+
+mr_result <- generate_odds_ratios(mr(data))
+mr_result
+
+```
+
+plotiing Forest plots based on the odds ratios generated 
+
+```{r}
+
+forest_plot_data <- tibble::tibble(mean = round(mr_result$or, digits = 3),
+                                   methods = c(mr_result$method),
+                                   lower = round(mr_result$or_lci95, digits = 3),
+                                   upper = round(mr_result$or_uci95, digits = 3),
+                                   pvalue = round(mr_result$pval, digits =3 ),
+                                   Beta = mr_result$b,
+                                   OR = round(mr_result$or, digits = 3)
+                                   )
+
+forest_plot_data |>
+  
+  forestplot(labeltext = c(methods, pvalue, OR),
+             clip = c(0.1, 2.5),
+             xlog = TRUE) |>
+  fp_set_style(box = "royalblue",
+               line = "darkblue") |>
+  fp_add_header(methods = c("", "Methods"),
+                pvalue = c("", "Pvalue"),
+                OR = c("", "OR")) |>
+  fp_decorate_graph(graph.pos = 3) |>
+  fp_set_zebra_style("#f9f9f9")
+
+```
+
+
+Interpretation : Collectively, the findings strongly support the conclusion that alterations in body mass index may causally impact the risk of developing Type 2 diabetes.
+
+
+
+# Calculating the Heterogeneity and pleiotropy 
+
+Heterogeneity in Mendelian Randomization (MR) refers to the variability in causal estimates across different genetic variants used as instrumental variables or across different studies. 
+
+Addressing heterogeneity in MR involves careful consideration of potential sources of variability and the implementation of appropriate statistical methods to assess and account for heterogeneity. Sensitivity analyses, meta-analyses, and robust statistical modeling techniques are commonly employed to explore and mitigate heterogeneity in MR studies, enhancing the reliability and generalizability of causal estimates.          
+
+```{r}
+
+mr_heterogeneity(data)
+mr_pleiotropy_test(data)
+
+```
+
+Heterogeneity Result Interpretation : both MR Egger and Inverse variance weighted methods detected significant heterogeneity (p < 0.05) between the exposure (Body mass index) and the outcome (Type 2 diabetes), as evidenced by the low p-values and elevated test statistics.
+
+
+Pleiotropy result interpretation : The Egger intercept is approximately -0.0088 with a standard error of 0.0146 and a p-value of 0.5504. Since the p-value is greater than the typical significance threshold of 0.05, there is no strong evidence to reject the null hypothesis of no directional pleiotropy. Therefore, based on this test, there is no significant evidence of pleiotropy between Body mass index and Type 2 diabetes in the analyzed data.
+
+
+# Checking the Directionality 
+
+Directionality refers to the causal relationship between the exposure and the outcome, indicating whether the exposure variable influences the outcome or vice versa.
+
+checking directionality in MR analysis helps ensure the validity and reliability of causal inference and enhances the interpretation of study findings.
+
+```{r}
+directionality_test(data)
+```
+
+
+Directionality Test interpretation : The p-value (2.403171e-34) associated with the Steiger test indicates a significant difference between the SNP-exposure and SNP-outcome correlations, supporting the correct specification of the causal direction between body mass index (exposure) and Type 2 diabetes (outcome).    
+
+# Sensitivity Analysis
+
+Sensitivity analysis involves testing the robustness of the MR results by assessing the impact of potential outliers or influential data points on the causal estimates.         
+
+Here MRPRESSO outlier test is used as it specifically identifies and addresses outliers in the genetic instrumental variable (IV) data, which may affect the validity of the MR analysis.
+
+
+```{r}
+
+mr_presso_res <- mr_presso(BetaExposure = 'beta.exposure', BetaOutcome = 'beta.outcome', SdExposure = 'se.exposure', SdOutcome = 'se.outcome',
+  data = data, OUTLIERtest = TRUE, DISTORTIONtest = TRUE, NbDistribution = 10000)
+
+mr_presso_res
+
+```
+
+
+MRPRESSO has identified one outlier SNP (rs7903146).
+
+Removing the outlier and checking if the heterogeneity present in the analysis is reducing or not
+
+# Reanalysis for Heterogeneity 
+
+```{r}
+
+mr_heterogeneity(data[-mr_presso_res$`MR-PRESSO results`$`Distortion Test`$`Outliers Indices`,])
+
+```
+
+The test statistic has indeed decreased significantly from around 309 to approximately 105 after removing the outlier detected by MR PRESSO. This reduction in the test statistic indicates a decrease in the overall heterogeneity in the Mendelian Randomization (MR) analysis.
+
+
+However, despite the decrease, both MR Egger and Inverse Variance Weighted methods still show evidence of significant heterogeneity, suggesting that some level of variability remains in the causal estimates obtained from different genetic variants.
+
+
+This suggests that there may be underlying differences in the causal estimates obtained from different genetic variants, indicating potential complexities or biases in the MR analysis.
+
+
+**checking if the removal of the outlier changes the MR result significantly **
+
+```{r}
+mr_result_out <- generate_odds_ratios(mr(data[-mr_presso_res$`MR-PRESSO results`$`Distortion Test`$`Outliers Indices`,]))
+mr_result_out
+
+```
+
+
+Interpretation : There is no significant changes observed in the results before and after the removal of outliers. The results remain constant, there is significant causal relation between BMI and Type 2 Diabetes.
+
